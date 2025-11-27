@@ -1,0 +1,28 @@
+# 测试配置文件
+ticker: "SOL"
+quantity: "0.1"
+maker_tick_offset: 1
+no_chicken_mode: false
+hedging_ratio: "100"
+
+accounts:
+  - name: "mock_maker"
+    exchange: "backpack_mock"
+    credentials: {}
+    ticker: "SOL"
+
+maker_account: "mock_maker"
+taker_accounts: []
+
+min_holding_time: 1000
+max_holding_time: 3000
+cleanup_rounds: 5
+order_timeout: 5
+cancel_timeout: 3
+maker_side: "buy"
+max_play_rounds: 1
+
+logging:
+  level: "DEBUG"
+  console: true
+  file: "mock_test.log"

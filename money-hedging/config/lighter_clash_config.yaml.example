@@ -1,0 +1,29 @@
+# lighter_clash.py configuration example
+
+ticker: "SOL"
+quantity: "1"
+
+# Spread trigger. Either provide ratio (e.g. 0.001 for 0.1%) or pct value.
+spread_threshold_pct: 0.1  # percent
+# spread_threshold_ratio: "0.001"
+
+hold_seconds: 6
+poll_interval: 0.5
+order_timeout: 5
+
+accounts:
+  - name: "lighter_account_a"
+    credentials:
+      API_KEY_PRIVATE_KEY: ""
+      LIGHTER_ACCOUNT_INDEX: "0"
+      LIGHTER_API_KEY_INDEX: "0"
+
+  - name: "lighter_account_b"
+    credentials:
+      API_KEY_PRIVATE_KEY: ""
+      LIGHTER_ACCOUNT_INDEX: "0"
+      LIGHTER_API_KEY_INDEX: "0"
+
+logging:
+  level: "INFO"
+  console: true

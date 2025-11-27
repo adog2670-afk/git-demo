@@ -1,0 +1,50 @@
+# 老鹰捉小鸡策略配置文件
+# Eagle Chicken Strategy Configuration
+
+# 基础交易配置
+ticker: "BNB"
+quantity: 0.2
+target_volume: 300000  # 目标总交易量 (USD)
+maker_tick_offset: 1  # maker单价格偏移tick数量
+hedging_ratio: 1  # 对冲比例, 默认1表示1:1对冲。如果是10，表示maker方买1个单位，taker方卖10个单位对冲
+
+# 账户配置
+accounts:
+  # Maker账户 (Backpack)
+  # - name: "backpack_mock"
+  #   exchange: "backpack_mock"
+  - name: "binance_mock"
+    exchange: "binance_mock"
+  
+  # Taker账户1 (Lighter)
+  - name: "lighter_1"
+    exchange: "lighter"
+    credentials:
+      API_KEY_PRIVATE_KEY: ""
+      LIGHTER_ACCOUNT_INDEX: ""
+      LIGHTER_API_KEY_INDEX: ""
+
+# 账户角色配置
+maker_account: "binance_mock"
+taker_accounts:
+  - "lighter_1"
+  # - "lighter_2"
+
+# 持仓时间配置 (毫秒)
+min_holding_time: 4000  # 最小持仓时间
+max_holding_time: 7000  # 最大持仓时间
+
+# 轮次配置
+cleanup_rounds: 1  # T轮后进行全量平仓清理
+
+max_play_rounds: 200000  # 最大执行轮次
+
+# 超时配置 (秒)
+order_timeout: 3      # 订单超时时间
+cancel_timeout: 5     # 取消订单超时时间
+
+# 日志配置
+logging:
+  level: "DEBUG"
+  file: "logs/eagle_chicken.log"
+  console: true

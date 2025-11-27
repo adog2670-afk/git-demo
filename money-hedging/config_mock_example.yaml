@@ -1,0 +1,40 @@
+# Mock交易配置示例
+# 这个配置文件展示了如何使用backpack_mock进行无损耗测试
+
+ticker: "SOL"
+quantity: "0.1"
+maker_tick_offset: 1
+no_chicken_mode: false
+hedging_ratio: "100"  # 100倍对冲，主要交易lighter
+
+accounts:
+  # Maker账户使用mock交易所，不产生真实交易成本
+  - name: "backpack_maker"
+    exchange: "backpack_mock"
+    credentials: {}  # mock不需要真实凭证
+    ticker: "SOL_PERP"
+
+  # Taker账户使用真实交易所进行实际交易
+  - name: "lighter_taker"
+    exchange: "lighter"
+    credentials:
+      LIGHTER_API_KEY: "your_api_key"
+      LIGHTER_SECRET_KEY: "your_secret_key"
+    ticker: "SOL-PERP"
+
+maker_account: "backpack_maker"
+taker_accounts:
+  - "lighter_taker"
+
+min_holding_time: 1000  # 1秒
+max_holding_time: 5000  # 5秒
+cleanup_rounds: 10
+order_timeout: 10
+cancel_timeout: 5
+maker_side: "buy"
+max_play_rounds: 5
+
+logging:
+  level: "INFO"
+  console: true
+  file: "mock_strategy.log"
