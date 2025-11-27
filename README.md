@@ -1,4 +1,4 @@
-polymarket tool 可以实现自动化筛选订单进行签名下单
+polymarket赌博网站Tool 可以完全实现自动化筛选订单进行签名下单
 
 在安装好环境变量及库后，直接运行 polymarket.py 文件即可
 
